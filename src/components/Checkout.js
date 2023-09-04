@@ -122,7 +122,7 @@ const Checkout = () => {
               />
             </div>
 
-            <NavLink to="/products">
+            <NavLink to="/">
                 <button className="btn">
                     Confirm
                 </button>  
