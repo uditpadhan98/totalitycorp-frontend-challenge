@@ -52,13 +52,13 @@ Before you begin, ensure you have met the following requirements:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/e-commerce-website.git
+   git clone https://github.com/uditpadhan98/totalitycorp-frontend-challenge.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd e-commerce-website
+   cd totalitycorp-frontend-challenge
    ```
 
 3. Install the project dependencies:
