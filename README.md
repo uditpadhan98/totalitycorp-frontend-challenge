@@ -16,6 +16,8 @@ Welcome to the E-Commerce website repository! This project is a dynamic and feat
 
 In an increasingly digital world, e-commerce has become an integral part of the retail industry. This website is designed to provide a versatile and customizable foundation for selling products online. It offers a seamless shopping experience for customers, allowing them to explore a wide range of products, sort them based on their preferences, and efficiently filter products by color, company, and category.
 
+In this e-commerce website, product data is fetched from a remote server via API calls. These calls retrieve product information like name, price, color, company, and category, which is then dynamically displayed on the website's pages. When users click on a product, detailed information is fetched through API calls and presented on a dedicated product details page, allowing them to make informed purchase decisions. This API-driven approach ensures up-to-date and dynamic product listings, improving user interaction and enabling seamless integration with external systems.
+
 ## Features
 
 1. **Product Listing**: Display a list of available products with details such as name, price, description, color, company, and category.
@@ -83,10 +85,10 @@ Before you begin, ensure you have met the following requirements:
 
 - React.js: Front-end JavaScript library for building user interfaces.
 - HTML/CSS: Markup and styling for web pages.
-- Redux: State management for the application.
 - React Router: Handling routing within the application.
 - Axios: Making HTTP requests to fetch and update data.
-- Material-UI: A popular UI framework for React components.
+- React icons: A library that provides a set of customizable icons for use in React applications, enhancing the user interface.
+- Styled Components: A popular CSS-in-JS library that allows you to style your React components with dynamic styling based on JavaScript variables, making it easy to create reusable and maintainable UI components.
 
 ## Contributing
 
