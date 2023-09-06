@@ -18,6 +18,8 @@ In an increasingly digital world, e-commerce has become an integral part of the 
 
 In this e-commerce website, product data is fetched from a remote server via API calls. These calls retrieve product information like name, price, color, company, and category, which is then dynamically displayed on the website's pages. When users click on a product, detailed information is fetched through API calls and presented on a dedicated product details page, allowing them to make informed purchase decisions. This API-driven approach ensures up-to-date and dynamic product listings, improving user interaction and enabling seamless integration with external systems.
 
+For More information related to this project checkout the code.
+
 ## Features
 
 1. **Product Listing**: Display a list of available products with details such as name, price, description, color, company, and category.
