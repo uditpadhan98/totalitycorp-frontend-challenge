@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Product from "./Product";
 
 const FeatureProducts = () => {
+  //get the required data from global store house i.e. productContext
   const { isLoading, featureProducts } = useProductContext();
 
   if (isLoading) {
@@ -21,6 +22,8 @@ const FeatureProducts = () => {
         <div className="common-heading">Our Feature Services</div>
         <div className="grid grid-three-column">
           {featureProducts.map((curElem) => {
+            //mapping is used to traverse all the products 
+            //...curElem is used to pass the whole data of products are passed as props to the Products page 
             return <Product key={curElem.id} {...curElem} />;
           })}
         </div>

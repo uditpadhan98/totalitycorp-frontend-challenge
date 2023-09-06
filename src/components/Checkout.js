@@ -6,17 +6,22 @@ import FormatPrice from "../Helpers/FormatPrice";
 import { NavLink } from "react-router-dom";
 
 const Checkout = () => {
-    const {user, isAuthenticated }=useAuth0();
-    const { cart, total_price, shipping_fee } = useCartContext();
+  const { user, isAuthenticated } = useAuth0();
+  const { cart, total_price, shipping_fee, clearCart } = useCartContext();
 
-    if (cart.length === 0) {
-        return (
-          <EmptyDiv>
-            <h3>No Cart in Item</h3>
-          </EmptyDiv>
-        );
-    }
-    
+  if (cart.length === 0) {
+    return (
+      <EmptyDiv>
+        <h3>No Cart in Item</h3>
+      </EmptyDiv>
+    );
+  }
+
+  const checkoutConfirm=()=>{
+    clearCart();
+    alert("congratulation!!! Your order is on the way !!!");
+  }
+
   return (
     <Wrapper>
       <div className="right-side">
@@ -26,15 +31,21 @@ const Checkout = () => {
             <table className="table">
               <tr>
                 <td>Subtotal</td>
-                <td className="price"><FormatPrice price={total_price} /></td>
+                <td className="price">
+                  <FormatPrice price={total_price} />
+                </td>
               </tr>
               <tr>
                 <td>Shipping Fee</td>
-                <td className="price"><FormatPrice price={shipping_fee} /></td>
+                <td className="price">
+                  <FormatPrice price={shipping_fee} />
+                </td>
               </tr>
               <tr className="total">
                 <td>Total</td>
-                <td className="price"><FormatPrice price={shipping_fee + total_price} /></td>
+                <td className="price">
+                  <FormatPrice price={shipping_fee + total_price} />
+                </td>
               </tr>
             </table>
           </div>
@@ -52,18 +63,18 @@ const Checkout = () => {
               <label for="full-name">Full Name: </label>
               {isAuthenticated && (
                 <input
-                    id="full-name"
-                    name="full-name"
-                    value={user.name}
-                    required
-                    type="text"
+                  id="full-name"
+                  name="full-name"
+                  value={user.name}
+                  required
+                  type="text"
                 />
               )}
             </div>
 
             <div>
               <label for="credit-card-num">
-                Card Number: 
+                Card Number:
                 <span className="card-logos">
                   <i className="card-logo"></i>
                   <i className="card-logo"></i>
@@ -82,7 +93,7 @@ const Checkout = () => {
 
             <div>
               <p className="expires">Expires on: </p>
-              <div className="card-experation">
+              <div className="card-expiration">
                 <label for="expiration-month">Month: </label>
                 <select id="expiration-month" name="expiration-month" required>
                   <option value="">Month:</option>
@@ -97,7 +108,7 @@ const Checkout = () => {
                   <option value="">September</option>
                   <option value="">October</option>
                   <option value="">November</option>
-                  <option value="">Decemeber</option>
+                  <option value="">December</option>
                 </select>
 
                 <label className="expiration-year"> Year: </label>
@@ -123,9 +134,9 @@ const Checkout = () => {
             </div>
 
             <NavLink to="/">
-                <button className="btn">
-                    Confirm
-                </button>  
+              <button className="btn" onClick={checkoutConfirm}>
+                Confirm
+              </button>
             </NavLink>
           </form>
 
@@ -150,55 +161,55 @@ const EmptyDiv = styled.div`
   }
 `;
 const Wrapper = styled.section`
-* {
+  * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  
+
   html {
     font-size: 62.5%;
   }
-  
+
   body {
-    background: url('https://images.pexels.com/photos/2876787/pexels-photo-2876787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background: url("https://images.pexels.com/photos/2876787/pexels-photo-2876787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
     background-position: center;
     background-size: cover;
     backdrop-filter: blur(8px);
     color: #3c3c39;
-  
+
     display: flex;
     justify-content: center;
     height: 100vh;
-    font-family: 'Monsterrat', sans-serif;
+    font-family: "Monsterrat", sans-serif;
     position: relative;
     padding: 8rem 0;
   }
-  
+
   .checkout-container {
     max-width: 70%;
     height: 50rem;
     display: flex;
     justify-content: center;
   }
-  
+
   em {
     font-style: normal;
     font-weight: 700;
   }
-  
+
   hr {
     color: #fff;
     margin-bottom: 1.2rem;
   }
 
   /* Right Side of container */
-  
+
   .right-side {
     background-color: #fff;
     padding: 1.8rem 3.2rem;
   }
-  
+
   .receipt {
     display: flex;
     flex-direction: column;
@@ -206,13 +217,13 @@ const Wrapper = styled.section`
     border-bottom: solid 1px;
     margin-bottom: 1rem;
   }
-  
+
   .receipt-heading {
     font-size: 2.6rem;
     text-align: center;
     font-weight: bold;
   }
-  
+
   .table {
     border-collapse: separate;
     border-spacing: 0 1.5rem;
@@ -221,66 +232,66 @@ const Wrapper = styled.section`
     margin-bottom: 0.5rem;
     width: 100%;
   }
-  
+
   .total td {
     font-size: 1.4rem;
     font-weight: 900;
   }
-  
+
   .price {
     text-align: end;
   }
-  
+
   /* Payment Section */
-  
+
   .payment-heading {
     font-size: 1.4rem;
     margin-bottom: 1rem;
   }
-  
+
   .form-box {
     display: grid;
     grid-template-rows: 1fr;
     gap: 1.5rem;
   }
-  
+
   .card-logo {
     font-size: 2rem;
   }
-  
+
   .expires,
   .form-box label {
     font-size: 1.2rem;
     font-weight: 700;
   }
-  
+
   .form-box input {
     font-family: inherit;
     font-size: 1.2rem;
     padding: 0.5rem;
     width: 100%;
   }
-  
+
   .form-box select {
     padding: 0.5rem;
   }
-  
+
   .form-box #cvv {
     width: 25%;
   }
-  
+
   .cvv-info:link,
   .cvv-info:visited {
     color: inherit;
     text-decoration: underline;
   }
-  
+
   .cvv-info:hover,
   .cvv-info:active {
     color: #5f7986;
     text-decoration: none;
   }
-  
+
   .btn {
     background-color: #4c616b;
     border: none;
@@ -292,25 +303,24 @@ const Wrapper = styled.section`
     margin-bottom: 1rem;
     padding: 1.5rem;
     cursor: pointer;
-    width:100%
+    width: 100%;
   }
-  
+
   .btn:hover {
     background-color: #5f7986;
     transition: ease-out 0.1s;
   }
-  
+
   .footer-text {
     font-size: 1rem;
     text-align: center;
   }
-  
+
   .form-box *:focus {
     outline: none;
     box-shadow: 0 0 0 0.8rem rgba(139, 139, 107, 0.5);
     border-radius: 8px;
   }
-  
 `;
 
 export default Checkout;

@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+//tittle is getting as props from single products page
 const PageNavigation = ({ title }) => {
   return (
     <Wrapper>

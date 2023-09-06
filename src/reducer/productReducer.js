@@ -2,11 +2,14 @@ const ProductReducer = (state, action) => {
   switch (action.type) {
     case "SET_LOADING":
       return {
+        //...state return the whole initial data 
         ...state,
         isLoading: true,
       };
 
     case "SET_API_DATA":
+      //action.payload is the whole data received from api
+      //so just filter method is used to get the products in which featured is true 
       const featureData = action.payload.filter((curElem) => {
         return curElem.featured === true;
       });
@@ -14,8 +17,8 @@ const ProductReducer = (state, action) => {
       return {
         ...state,
         isLoading: false,
-        products: action.payload,
-        featureProducts: featureData,
+        products: action.payload, //return all the products
+        featureProducts: featureData, //return the featured products
       };
 
     case "API_ERROR":

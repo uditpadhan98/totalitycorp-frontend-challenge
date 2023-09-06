@@ -19,10 +19,13 @@ const FilterSection = () => {
     });
 
     if (attr === "colors") {
+      //concat method can be used to get all the colors array in single array
       // return (newVal = ["All", ...new Set([].concat(...newVal))]);
+      //but flat method is also concat the data in single array
       newVal = newVal.flat();
     }
 
+    //set will store the unique value only + "all" value
     return (newVal = ["all", ...new Set(newVal)]);
   };
 
@@ -33,6 +36,7 @@ const FilterSection = () => {
 
   return (
     <Wrapper>
+      {/* search box */}
       <div className="filter-search">
         <form onSubmit={(e) => e.preventDefault()}>
           <input

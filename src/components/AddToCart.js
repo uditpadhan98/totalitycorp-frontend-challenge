@@ -6,14 +6,17 @@ import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
 import { useCartContext } from "../context/cart_context";
 
+//getting products as props from single product page
 const AddToCart = ({ product }) => {
   const { addToCart } = useCartContext();
+
   const { id, colors, stock } = product;
 
   const [color, setColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 
   const setDecrease = () => {
+    //amount can not be go below 1
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
   };
 
@@ -48,6 +51,7 @@ const AddToCart = ({ product }) => {
         setIncrease={setIncrease}
       />
 
+      {/* here color is passed not colors because color is the selected color  */}
       <NavLink to="/cart" onClick={() => addToCart(id, color, amount, product)}>
         <Button className="btn">Add To Cart</Button>
       </NavLink>

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+//setting the image props as empty defined
+//so that if nothing is getting as props then error should not be shown
 const MyImage = ({ imgs = [{ url: "" }] }) => {
+  //use state to change the bigger image in single products section
   const [mainImage, setMainImage] = useState(imgs[0]);
 
   return (

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import FormatPrice from "../Helpers/FormatPrice";
 
 const Product = (curElem) => {
+  //destructure the products data
   const { id, name, image, price, category } = curElem;
   return (
     <NavLink to={`/singleProduct/${id}`}>
@@ -15,6 +16,7 @@ const Product = (curElem) => {
         <div className="card-data">
           <div className="card-data-flex">
             <h3>{name}</h3>
+            {/* price is passed as props */}
             <p className="card-data--price">{<FormatPrice price={price} />}</p>
           </div>
         </div>

@@ -21,6 +21,7 @@ const initialState = {
 };
 
 export const FilterContextProvider = ({ children }) => {
+  //getting the products data as initially it is founded
   const { products } = useProductContext();
   // console.log(products);
 
@@ -79,6 +80,7 @@ export const FilterContextProvider = ({ children }) => {
   );
 };
 
+//custom hook
 export const useFilterContext = () => {
   return useContext(FilterContext);
 };

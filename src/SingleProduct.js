@@ -19,6 +19,7 @@ const SingleProduct = () => {
 
   const { id } = useParams();
 
+  //destructuring the single products
   const {
     id:alias,
     name,
@@ -31,6 +32,7 @@ const SingleProduct = () => {
     images,
   } = singleProduct;
 
+  //when ever page is reload then this use effect call
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
   },[]);
@@ -43,6 +45,7 @@ const SingleProduct = () => {
 
   return (
     <Wrapper>
+      {/* passing tittle as props */}
       <PageNavigation title={name} />
       <Container className="container">
         <div className="grid grid-two-column">
@@ -51,7 +54,7 @@ const SingleProduct = () => {
             <MyImage imgs={images} />
           </div>
 
-          {/* product dAta  */}
+          {/* product data  */}
           <div className="product-data">
             <h2>{name}</h2>
             <Star stars={stars} reviews={reviews}/>
@@ -90,6 +93,7 @@ const SingleProduct = () => {
             <div className="product-data-info">
               <p>
                 Available:
+                {/* if stock is greater then 0 then available else not available */}
                 <span className="stock-available"> {stock > 0 ? "In Stock" : "Not Available"}</span>
               </p>
               <p>
@@ -100,6 +104,7 @@ const SingleProduct = () => {
               </p>
             </div>
             <hr />
+            {/* if stock is greater then 0 then pass single product as props th add to cart */}
             {stock > 0 && <AddToCart product={singleProduct} />}
           </div>
         </div>
